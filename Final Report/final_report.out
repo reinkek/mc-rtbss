@@ -1,0 +1,18 @@
+\BOOKMARK [1][-]{section.1}{Introduction }{}% 1
+\BOOKMARK [1][-]{section.2}{Detailed Problem Description }{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Sensor with poor lateral localization and point target reward model }{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Sensor with poor lateral localization and angle target reward model }{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Sensor with uniform localization, angle target reward model, and high noise in target transition model }{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Sensor with uniform localization, point target reward model, and agent state dependent observation model }{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Solution Method}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Particle Filter }{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Projection of Belief State into Future }{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Search Tree Expansion: Branch and Bound}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.4}{Top Level Simulation}{section.3}% 11
+\BOOKMARK [1][-]{section.4}{Results }{}% 12
+\BOOKMARK [2][-]{subsection.4.1}{High Observation Noise in Lateral Axis: Point Target}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.2}{High Observation Noise in Lateral Axis: Angle Target}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.3}{High Transition Velocity Noise: Angle Target}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.4}{Fixed Improved Vantage Point Model: Point Target}{section.4}% 16
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 17
+\BOOKMARK [1][-]{section.6}{Acknowledgements}{}% 18

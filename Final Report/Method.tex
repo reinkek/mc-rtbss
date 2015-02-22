@@ -1,0 +1,74 @@
+% !TEX root = ./final_report.tex
+\section{Solution Method}\label{sec:method}
+	The overarching high level solution method implemented is Monte-Carlo Real-Time Belief Space Search (MC-RTBSS), similar to that described in Wolf\cite{Wolf2011}.  The algorithms are described in the following sections.
+\subsection{Particle Filter \label{sec:particle}}
+	The continuous nature of the target's states and non linear-Gaussian assumptions renders the state-space directly unsearchable, and the belief-space impractical to represent exactly.  A particle model was chosen in order to discretely approximate the belief-state and reduce the continuous search space into a discretely searchable space. 
+	 
+	At each time-step forward of the simulation the particles are propagated through the known stochastic transition model.  An observation of the true underlying state is made, and each propagated particle is weighted proportionally to its new observation model.  Once all weights are assigned, a new particle representation of the belief-state is sampled from the weighted particles.  The process is summarized in Algorithm \ref{alg:update}.
+	\begin{algorithm}\caption{Updates belief state given an observation; returns an updated belief state}\label{alg:update}
+	\begin{algorithmic}
+	\Function{UpdateBelief}{$b, o$}
+		\For{state in $b$}
+			\State $w_{\textrm{state}} \gets O\left(o|\textrm{state}\right)$
+		\EndFor
+		\State $b' \gets$ sample $N_p$ particles from weighted $b\newline$
+		\Return $b'$
+	\EndFunction
+	\end{algorithmic}
+	\end{algorithm}
+	
+\break
+\subsection{Projection of Belief State into Future \label{subsec:projection}}
+	To project the belief state into the future for rational planning based on expected future outcomes, first the particles from the current leaf are transitioned according to the transition model.  However, due to the partially observable nature of the problem, the resulting belief state will change depending on the observation received after the transition.  The observation space is also continuous in this problem, so to expand and search all possible observations to determine an expected utility over all resulting belief states is infeasible.  Again we will rely on weighted sampling $N_o $ times to approximate the search over the observation space.  Thus each time that the belief state is projected the search tree grows $N_o$ new branches.  The function that projects belief is outlined in Algorithm \ref{alg:project}.
+	\begin{algorithm}\caption{Projects the belief state into the next time step for a number of samples; returns set of projected next updated belief states}\label{alg:project}
+	\begin{algorithmic}
+		\Function{ProjectBelief}{$b, a$}
+			\State $b' \gets T\left(b, a\right)$
+			\For{$i\; \textrm{in } 1:N_o$}
+			\State $s_{o_i} \gets$ sample a particle from $b$
+			\State $s'_{o_i} \gets T\left(s_{o_i}, a\right)$
+			\State $o_i \gets$ sample observation from $O\left(o|s'_{o_i}\right)$
+			\State $b'_{o_1}\gets$ \Call{UpdateBelief}{$b',o_i$} 
+			\EndFor
+			\State \Return $\left\{b'_{o_1}, b'_{o_2}, ..., b'_{o_{N_o}} \right\}$
+		\EndFunction
+	\end{algorithmic}
+	\end{algorithm}
+
+\subsection{Search Tree Expansion: Branch and Bound}
+	Now that we have introduced the forward projection of the belief state through the branching of a tree over observation samples, we can come up with a recursive expansion scheme that can search all sampled belief states.  At depth 1 we first expand over the finite discrete action space to search which action will return the best result up to the search depth and quality of the heuristic at depth 0.  Projecting forward, we must follow the projection algorithm shown in Algorithm \ref{alg:project} for each action.  Thus at each depth the search tree will expand by a factor of $N_a \cdot N_o$, bringing the total complexity of calculation to the order of $(N_p+N_a)\cdot\left(N_a \cdot N_o\right)^D$.  
+	
+	With such a rapid expansion of complexity and the large number of particles required for reliable results, the ability to prune the search tree is extremely valuable in order to increase the search depth.  Search depth is very important to the proposed problem, because without sufficient depth the algorithm will not be able to see ahead to realize that sacrificing an immediate increase in reward could result in a long-term increase in reward.  In other words, our algorithm will become too greedy.
+	
+	In order to safely prune branches from the search tree, a branch-and-bound technique was implemented.  In this technique each expanding node first calculates a heuristic that represents the upper bound for the expected utility of it's entire sub-tree.  In our case, the rewards are all monotonic negative, which means that a consistent upper bound on the reward is the immediate reward of the current belief-action pair because the total reward cannot increase as depth increases.  This upper bound is then compared with the lower bound of the best expected reward as returned upwards from its sister trees.  In our case, when the depth drops to 0 through recursion, there is a known reward possible at the end of the game because it will end when the agent chooses to shoot.  A better solution may exist further down the tree, but we are guaranteed to at least be able to choose this zero-depth reward in the worst case.  If the best possible reward of an unexpanded sub-tree is worse than the score we already guaranteed from a sister tree, then there is no reason to expand that tree, and we can save the computation time. The expanding and pruning algorithm implemented is illustrated in Algorithm \ref{alg:expand}
+	
+	\begin{algorithm}\caption{Expands the search tree at each depth D; returns the lower bound on largest reward for current sub-tree}\label{alg:expand}
+	\begin{algorithmic}
+		\Function{ExpandTree}{$b, D$}
+			\If{$D = 0$}
+				\State \Return $L\left(b\right)$
+			\Else
+				\State Queue actions in order of decreasing $U\left(b, a_i\right)$
+				\While{ $U\left(b, a_i\right) > L_T$ and (Action queue is not empty)}
+					\State $a_i \gets$ Dequeue action queue
+					\State $\sigma \gets 0$
+					\For{$b'_{o_i} \textrm{in }$ \Call{ProjectBelief}{$b, a_i$}}
+						\State $\sigma \gets \sigma +$ \Call{ExpandTree}{$b'_{o_i}, D-1$}
+					\EndFor
+					\State $L_T\left(a_i\right) \gets $\Call{RewardModel}{$b, a_i$}$+ \gamma\frac{\sigma}{N_o}$
+					\If{$L_T\left(a_i\right) > L_T$}
+						\State $a^{\star} \gets a_i$
+						\State $L_T \gets L_T\left(a_i\right)$
+					\EndIf
+				\EndWhile
+			\EndIf
+			\State \Return $L_T$
+		\EndFunction
+	\end{algorithmic}
+	\end{algorithm}
+	
+\break
+\subsection{Top Level Simulation}
+	With a POMDP solution method in place, a simple simulation structure was implemented to test the solver.  The simulation simply makes an observation of the true state and applies the observation update model to the uniform initialization.  Next the POMDP solver runs the ExpandTree function for the desired depth.  The best action is returned and executed.  Then the simulation time is ticked forward, the true state and belief states are transitioned through the transition model.  A new observation is sampled from using the true state as a given, and the observation is used to again update the belief.  This cycle continues until the game ends. The following parameters were used in the simulation.\\
+	$D = 2 ; N_p = 500 ; N_o = 3 ; N_a = 6 $
+	

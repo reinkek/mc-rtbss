@@ -1,0 +1,115 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction }{1}{section.1}}
+\newlabel{sec:problem}{{2}{1}{Detailed Problem Description}{section.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Detailed Problem Description }{1}{section.2}}
+\newlabel{sec:bad_heading}{{2.1}{2}{Sensor with poor lateral localization and point target reward model}{subsection.2.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Sensor with poor lateral localization and point target reward model }{2}{subsection.2.1}}
+\newlabel{sec:beam_bad_heading}{{2.2}{2}{Sensor with poor lateral localization and angle target reward model}{subsection.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Sensor with poor lateral localization and angle target reward model }{2}{subsection.2.2}}
+\newlabel{sec:high_vel_noise}{{2.3}{3}{Sensor with uniform localization, angle target reward model, and high noise in target transition model}{subsection.2.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Sensor with uniform localization, angle target reward model, and high noise in target transition model }{3}{subsection.2.3}}
+\newlabel{sec:vantage}{{2.4}{3}{Sensor with uniform localization, point target reward model, and agent state dependent observation model}{subsection.2.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Sensor with uniform localization, point target reward model, and agent state dependent observation model }{3}{subsection.2.4}}
+\citation{Wolf2011}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Solution Method}{4}{section.3}}
+\newlabel{sec:method}{{3}{4}{Solution Method}{section.3}{}}
+\newlabel{sec:particle}{{3.1}{4}{Particle Filter}{subsection.3.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Particle Filter }{4}{subsection.3.1}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Updates belief state given an observation; returns an updated belief state\relax }}{4}{algorithm.1}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{alg:update}{{1}{4}{Updates belief state given an observation; returns an updated belief state\relax }{algorithm.1}{}}
+\newlabel{subsec:projection}{{3.2}{4}{Projection of Belief State into Future}{subsection.3.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Projection of Belief State into Future }{4}{subsection.3.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Search Tree Expansion: Branch and Bound}{4}{subsection.3.3}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Projects the belief state into the next time step for a number of samples; returns set of projected next updated belief states\relax }}{5}{algorithm.2}}
+\newlabel{alg:project}{{2}{5}{Projects the belief state into the next time step for a number of samples; returns set of projected next updated belief states\relax }{algorithm.2}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces Expands the search tree at each depth D; returns the lower bound on largest reward for current sub-tree\relax }}{5}{algorithm.3}}
+\newlabel{alg:expand}{{3}{5}{Expands the search tree at each depth D; returns the lower bound on largest reward for current sub-tree\relax }{algorithm.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Top Level Simulation}{5}{subsection.3.4}}
+\newlabel{fig:bad_heading_init}{{1a}{6}{Initial belief state\relax }{figure.caption.1}{}}
+\newlabel{sub@fig:bad_heading_init}{{a}{6}{Initial belief state\relax }{figure.caption.1}{}}
+\newlabel{fig:bad_heading_t_0}{{1b}{6}{t=0, first observation\relax }{figure.caption.1}{}}
+\newlabel{sub@fig:bad_heading_t_0}{{b}{6}{t=0, first observation\relax }{figure.caption.1}{}}
+\newlabel{fig:bad_heading_t_2}{{1c}{6}{t=2\relax }{figure.caption.1}{}}
+\newlabel{sub@fig:bad_heading_t_2}{{c}{6}{t=2\relax }{figure.caption.1}{}}
+\newlabel{fig:bad_heading_t_3}{{1d}{6}{t=3\relax }{figure.caption.1}{}}
+\newlabel{sub@fig:bad_heading_t_3}{{d}{6}{t=3\relax }{figure.caption.1}{}}
+\newlabel{fig:bad_heading_t_4}{{1e}{6}{t=4\relax }{figure.caption.1}{}}
+\newlabel{sub@fig:bad_heading_t_4}{{e}{6}{t=4\relax }{figure.caption.1}{}}
+\newlabel{fig:bad_heading_t_5}{{1f}{6}{t=5, agent engages target\relax }{figure.caption.1}{}}
+\newlabel{sub@fig:bad_heading_t_5}{{f}{6}{t=5, agent engages target\relax }{figure.caption.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Progression of MC-RTBSS algorithm for the case where there is high lateral variance in the observation measurement, and the shooting mechanism is a point target. The agent state is the red square, the current observation is the yellow triangle, the true target position is the magenta star, the belief state particles are the blue circles, and the shooting mechanism is the red circle.\relax }}{6}{figure.caption.1}}
+\newlabel{fig:bad_heading}{{1}{6}{Progression of MC-RTBSS algorithm for the case where there is high lateral variance in the observation measurement, and the shooting mechanism is a point target. The agent state is the red square, the current observation is the yellow triangle, the true target position is the magenta star, the belief state particles are the blue circles, and the shooting mechanism is the red circle.\relax }{figure.caption.1}{}}
+\newlabel{ref:results}{{4}{6}{Results}{section.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results }{6}{section.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}High Observation Noise in Lateral Axis: Point Target}{6}{subsection.4.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}High Observation Noise in Lateral Axis: Angle Target}{6}{subsection.4.2}}
+\newlabel{fig:beam_bad_heading_init}{{2a}{7}{Initial belief state\relax }{figure.caption.2}{}}
+\newlabel{sub@fig:beam_bad_heading_init}{{a}{7}{Initial belief state\relax }{figure.caption.2}{}}
+\newlabel{fig:beam_bad_heading_t_0}{{2b}{7}{A t=0, first observation\relax }{figure.caption.2}{}}
+\newlabel{sub@fig:beam_bad_heading_t_0}{{b}{7}{A t=0, first observation\relax }{figure.caption.2}{}}
+\newlabel{fig:beam_bad_heading_t_1}{{2c}{7}{t=1\relax }{figure.caption.2}{}}
+\newlabel{sub@fig:beam_bad_heading_t_1}{{c}{7}{t=1\relax }{figure.caption.2}{}}
+\newlabel{fig:beam_bad_heading_t_2}{{2d}{7}{t=2\relax }{figure.caption.2}{}}
+\newlabel{sub@fig:beam_bad_heading_t_2}{{d}{7}{t=2\relax }{figure.caption.2}{}}
+\newlabel{fig:beam_bad_heading_t_4}{{2e}{7}{t=4\relax }{figure.caption.2}{}}
+\newlabel{sub@fig:beam_bad_heading_t_4}{{e}{7}{t=4\relax }{figure.caption.2}{}}
+\newlabel{fig:beam_bad_heading_t_6}{{2f}{7}{t=6, agent engages target\relax }{figure.caption.2}{}}
+\newlabel{sub@fig:beam_bad_heading_t_6}{{f}{7}{t=6, agent engages target\relax }{figure.caption.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Progression of MC-RTBSS algorithm for the case where there is high lateral variance in the observation measurement, and the shooting mechanism is an angle target. The agent state is the red square, the current observation is the yellow triangle, the true target position is the magenta star, the belief state particles are the blue circles, and the shooting mechanism is the red beam.\relax }}{7}{figure.caption.2}}
+\newlabel{fig:beam_bad_heading}{{2}{7}{Progression of MC-RTBSS algorithm for the case where there is high lateral variance in the observation measurement, and the shooting mechanism is an angle target. The agent state is the red square, the current observation is the yellow triangle, the true target position is the magenta star, the belief state particles are the blue circles, and the shooting mechanism is the red beam.\relax }{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}High Transition Velocity Noise: Angle Target}{7}{subsection.4.3}}
+\newlabel{fig:high_vel_noise_init}{{3a}{8}{Initial belief state\relax }{figure.caption.3}{}}
+\newlabel{sub@fig:high_vel_noise_init}{{a}{8}{Initial belief state\relax }{figure.caption.3}{}}
+\newlabel{fig:high_vel_noise_t_0}{{3b}{8}{A t=0, first observation\relax }{figure.caption.3}{}}
+\newlabel{sub@fig:high_vel_noise_t_0}{{b}{8}{A t=0, first observation\relax }{figure.caption.3}{}}
+\newlabel{fig:high_vel_noise_t_1}{{3c}{8}{t=1\relax }{figure.caption.3}{}}
+\newlabel{sub@fig:high_vel_noise_t_1}{{c}{8}{t=1\relax }{figure.caption.3}{}}
+\newlabel{fig:high_vel_noise_t_2}{{3d}{8}{t=2\relax }{figure.caption.3}{}}
+\newlabel{sub@fig:high_vel_noise_t_2}{{d}{8}{t=2\relax }{figure.caption.3}{}}
+\newlabel{fig:high_vel_noise_t_3}{{3e}{8}{t=3\relax }{figure.caption.3}{}}
+\newlabel{sub@fig:high_vel_noise_t_3}{{e}{8}{t=3\relax }{figure.caption.3}{}}
+\newlabel{fig:high_vel_noise_t_4}{{3f}{8}{t=4, agent egages target\relax }{figure.caption.3}{}}
+\newlabel{sub@fig:high_vel_noise_t_4}{{f}{8}{t=4, agent egages target\relax }{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Progression of MC-RTBSS algorithm for the case where there is high velocity noise in the state transition function of the hostile vehicle, and the shooting mechanism is an angle target. The agent state is the red square, the current observation is the yellow triangle, the true target position is the magenta star, the belief state particles are the blue circles, and the shooting mechanism is the red beam.\relax }}{8}{figure.caption.3}}
+\newlabel{fig:vel_noise}{{3}{8}{Progression of MC-RTBSS algorithm for the case where there is high velocity noise in the state transition function of the hostile vehicle, and the shooting mechanism is an angle target. The agent state is the red square, the current observation is the yellow triangle, the true target position is the magenta star, the belief state particles are the blue circles, and the shooting mechanism is the red beam.\relax }{figure.caption.3}{}}
+\newlabel{fig:vantage_init}{{4a}{9}{Initial belief state\relax }{figure.caption.4}{}}
+\newlabel{sub@fig:vantage_init}{{a}{9}{Initial belief state\relax }{figure.caption.4}{}}
+\newlabel{fig:vantage_t_0}{{4b}{9}{A t=0, first observation\relax }{figure.caption.4}{}}
+\newlabel{sub@fig:vantage_t_0}{{b}{9}{A t=0, first observation\relax }{figure.caption.4}{}}
+\newlabel{fig:vantage_t_1}{{4c}{9}{t=1\relax }{figure.caption.4}{}}
+\newlabel{sub@fig:vantage_t_1}{{c}{9}{t=1\relax }{figure.caption.4}{}}
+\newlabel{fig:vantage_t_2}{{4d}{9}{t=2\relax }{figure.caption.4}{}}
+\newlabel{sub@fig:vantage_t_2}{{d}{9}{t=2\relax }{figure.caption.4}{}}
+\newlabel{fig:vantage_t_3}{{4e}{9}{t=3, agent engages target\relax }{figure.caption.4}{}}
+\newlabel{sub@fig:vantage_t_3}{{e}{9}{t=3, agent engages target\relax }{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Progression of MC-RTBSS algorithm for the case where an improved vantage point exists at $(-5,10)$, and the shooting mechanism is a point target. The agent state is the red square, the current observation is the yellow triangle, the true target position is the magenta star, the belief state particles are the blue circles, and the shooting mechanism is the red circle.\relax }}{9}{figure.caption.4}}
+\newlabel{fig:vantage}{{4}{9}{Progression of MC-RTBSS algorithm for the case where an improved vantage point exists at $(-5,10)$, and the shooting mechanism is a point target. The agent state is the red square, the current observation is the yellow triangle, the true target position is the magenta star, the belief state particles are the blue circles, and the shooting mechanism is the red circle.\relax }{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Fixed Improved Vantage Point Model: Point Target}{9}{subsection.4.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{9}{section.5}}
+\citation{Kochenderfer2014}
+\citation{Thrun:2005:PR:1121596}
+\bibdata{references}
+\bibcite{Kochenderfer2014}{1}
+\bibcite{Thrun:2005:PR:1121596}{2}
+\bibcite{Wolf2011}{3}
+\bibstyle{plain}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Acknowledgements}{10}{section.6}}
