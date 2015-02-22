@@ -1,0 +1,9 @@
+\begin{abstract}
+The interest in this project arises from the desire to automate the delivery of light cargo within a city using quadcopters. In general, the layout of buildings and roads is known, but the obstacles that a quadcopter could encounter in a pre-defined route are not known. This limitation could be overcome by flying high, but this strategy will reduce the range of the trips the quadcopter can undertake because of battery capacity limitations. With this project we would like to become familiar with the challenges encountered in using low computational power to plan and track a path that minimizes a quadcopter's battery consumption.
+
+The primary objective of the project is to reproduce the results shown in the paper "An Efficient Path Planning and Control Algorithm for RUAVs in Unknown and Cluttered Environments" by Yang et al\cite{yang2010efficient}. In this paper, the authors apply a Rapidly-exploring Random Tree (RTT) algorithm to the problem of navigating a 3D space with obstacles. The simulated quadcopter becomes aware of obstacles as it navigates its environment. The authors use a Model Predictive Control (MPC) algorithm to follow a smoothed version of the piecewise path returned by the RTT algorithm. 
+
+Al simulations would be done in Matlab. Throughout the project, we will be assessing the feasibility of implementing the approach by Yang et al. in embedded systems.
+
+A secondary objective of the project is to try other path planning algorithms and compare their performance with the RTT used by Yang et al. Another secondary objective is to add battery consumption minimization to the path finding problem.
+\end{abstract}

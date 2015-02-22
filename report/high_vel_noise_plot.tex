@@ -1,0 +1,40 @@
+% !TEX root = ./final_report.tex
+
+\begin{figure}
+	    \centering
+	    \begin{subfigure}[b]{0.3\textwidth}
+	            \includegraphics[width=\textwidth]{high_vel_noise_initial}
+	            \caption{Initial belief state}
+	            \label{fig:high_vel_noise_init}
+	    \end{subfigure}%
+	    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+	      %(or a blank line to force the subfigure onto a new line)
+	    \begin{subfigure}[b]{0.3\textwidth}
+	            \includegraphics[width=\textwidth]{high_vel_noise_first_obs}
+	            \caption{A t=0, first observation}
+	            \label{fig:high_vel_noise_t_0}
+	    \end{subfigure}
+	    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+	      %(or a blank line to force the subfigure onto a new line)
+	    \begin{subfigure}[b]{0.3\textwidth}
+	            \includegraphics[width=\textwidth]{high_vel_noise_t_1}
+	            \caption{t=1}
+	            \label{fig:high_vel_noise_t_1}
+	    \end{subfigure}
+	    \begin{subfigure}[b]{0.3\textwidth}
+	            \includegraphics[width=\textwidth]{high_vel_noise_t_2}
+	            \caption{t=2}
+	            \label{fig:high_vel_noise_t_2}
+	    \end{subfigure}
+	    \begin{subfigure}[b]{0.3\textwidth}
+	            \includegraphics[width=\textwidth]{high_vel_noise_t_3}
+	            \caption{t=3}
+	            \label{fig:high_vel_noise_t_3}
+	    \end{subfigure}
+	    \begin{subfigure}[b]{0.3\textwidth}
+	            \includegraphics[width=\textwidth]{high_vel_noise_t_4}
+	            \caption{t=4, agent egages target}
+	            \label{fig:high_vel_noise_t_4}
+	    \end{subfigure}
+	    \caption{Progression of MC-RTBSS algorithm for the case where there is high velocity noise in the state transition function of the hostile vehicle, and the shooting mechanism is an angle target. The agent state is the red square, the current observation is the yellow triangle, the true target position is the magenta star, the belief state particles are the blue circles, and the shooting mechanism is the red beam.}\label{fig:vel_noise}
+	\end{figure}

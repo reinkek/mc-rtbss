@@ -1,0 +1,7 @@
+% !TEX root = ./final_report.tex
+\begin{abstract}
+In this project, we simulate a hostile vehicle target with 2-dimensional continuous state which transitions from one discrete time-step to the next according to a known probabilistic model.  The decision-making agent is described by a discrete 2-dimensional position which transitions state deterministically according to a discrete action model. The partially observable nature of the target is captured by a belief state over possible states.  The probability model for the observations is defined as a function of the belief-state and deterministic agent state.  The agent is only allowed to shoot at the target one time.  A reward function was defined to capture the need to eliminate the target quickly, but also the need to establish a good enough estimate of the position of the target before shooting, lest the target survives.
+
+Four such models are investigated to determine the effectiveness of the employed Partially Observable Markov Decision Process (POMDP) solution method.  This project implements the Monte-Carlo Real-Time Belief Space Search method for online solution of the presented POMDP.  
+
+\end{abstract}

@@ -1,0 +1,22 @@
+\begin{thebibliography}{1}
+
+\bibitem{Kochenderfer2014}
+Mykel Kochenderfer.
+\newblock {\em Decision Making Under Uncertainty: Theory and Application}.
+\newblock The MIT Press, 1 edition, 2014.
+\newblock Pre-publishing printing for Stanford course.
+
+\bibitem{Thrun:2005:PR:1121596}
+Sebastian Thrun, Wolfram Burgard, and Dieter Fox.
+\newblock {\em Probabilistic Robotics (Intelligent Robotics and Autonomous
+  Agents)}.
+\newblock The MIT Press, 2005.
+
+\bibitem{Wolf2011}
+Travis~B. Wolf and Mykel~J. Kochenderfer.
+\newblock Aircraft collision avoidance using {M}onte {C}arlo real-time belief
+  space search.
+\newblock {\em Journal of Intelligent and Robotic Systems}, 64(2):277--298,
+  2011.
+
+\end{thebibliography}
