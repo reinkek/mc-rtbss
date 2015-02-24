@@ -1,8 +1,0 @@
-% !TEX root = ./final_report.tex
-\section{Conclusion}
-
-While in these simple test cases the MC-RTBSS algorithm performs satisfactorily with a lookahead depth of 2, more interesting cases exist where this was not sufficient.  However, if the lookahead were increased sufficiently to capture the proper behavior, the algorithm run time was orders of magnitude too slow for online use.  
-
-The bounds used in Algorithm \ref{alg:expand} to prune the search tree could be made to be more tight in order to prune even more of the tree.  In fact, it may be beneficial to employ a non-consistent heuristic that will further prune the tree at the expense of an optimality guarantee.  Practically, with a good heuristic the result will be only slightly suboptimal over the full tree, while the increased tree depth will reveal higher rewards that lead to more sophisticated behaviors.
-
-Another improvement that may contribute to more efficient updates of the belief state is a smart dynamic resampling scheme.  When the belief state is sparse, more particles are necessary to accurately represent it.  However, once the belief state is concentrated, less particles are necessary.  If the number of particles is dynamically selected to produce an optimal particle density, then a large increase in computation time could be gained at a negligible degradation in accuracy of the belief state.
